@@ -1,0 +1,41 @@
+[ {
+  "ID" : "1001",
+  "Name" : "Small Boat Fuel",
+  "Boat Class" : "MKV",
+  "Material" : "PETROLEUM",
+  "Status" : "100",
+  "Date" : "25 Feb 25",
+  "Size" : "5",
+  "Member" : "S3 Benavides",
+  "Comments" : "SAMPLE: Just refilled this, back in shed."
+}, {
+  "ID" : 1002,
+  "Name" : "New Test",
+  "Boat Class" : "HURRICANE",
+  "Material" : "PETROLEUM",
+  "Status" : 80.0,
+  "Date" : "3 Mar 25",
+  "Size" : 15.0,
+  "Member" : "S3 Benavides",
+  "Comments" : "Sample"
+}, {
+  "ID" : 1003,
+  "Name" : "New Tester",
+  "Boat Class" : "HURRICANE",
+  "Material" : "PETROLEUM",
+  "Status" : 80.0,
+  "Date" : "3 Mar 25",
+  "Size" : 15.0,
+  "Member" : "S3 Benavides",
+  "Comments" : "Sample"
+}, {
+  "ID" : 2001,
+  "Name" : "Oil can",
+  "Boat Class" : "HURRICANE",
+  "Material" : "OIL",
+  "Status" : 100.0,
+  "Date" : "3 Mar 25",
+  "Size" : 15.0,
+  "Member" : "S3",
+  "Comments" : "Commnet"
+} ]
