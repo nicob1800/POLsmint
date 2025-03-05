@@ -1,19 +1,29 @@
 package com.example;
 import java.awt.Color;
 import java.awt.Font;
+import java.io.File;
+import java.io.IOException;
+import java.util.Iterator;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 
 
 public class Gui{
 
-    private JFrame frame;
+    private JFrame frame, tableFrame;
     private JPanel panel;
     public JTextField in;
     public JTextField out;
@@ -21,6 +31,8 @@ public class Gui{
     private JButton newButt;
     private JButton saveButton;
     private JButton saveCloseButton;
+    private JButton tableButton;
+    private JTable table;
     public JFrame newItemFrame;
     private final String FONT = "Arial";
     public JPanel newItemPanel;
@@ -58,6 +70,8 @@ public class Gui{
         goButton.addActionListener(new Listener(this));
         newButt = createButton("New", 185, 50, 60, 30);
         newButt.addActionListener(new NewItemButton(this));
+        tableButton = createButton("Table", 255, 50, 75, 30);
+        tableButton.addActionListener(new Table(this));
         
 
         //-----Labels-----
@@ -148,7 +162,49 @@ public class Gui{
 
 
     }
+    public void initializeTable(){
+        tableFrame = createFrame("Items Table", 1000, 600, false);
+        tableFrame.setVisible(true);
+        
+        
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            File jsonFile = new File("C:/Users/Nicol/OneDrive/Desktop/Work/POLSMINT/Java Program/json-java1/src/main/java/com/example/Items.json");
+            ArrayNode arrayNode = (ArrayNode) objectMapper.readTree(jsonFile);
 
+            // Create table model
+            String[] columnNames = {"ID", "Name", "Boat Class", "Material", "Status", "Date", "Size", "Member", "Comments"};
+            DefaultTableModel tableModel = new DefaultTableModel(columnNames, 0);
+
+            // Populate table model with JSON data
+            Iterator<JsonNode> iterator = arrayNode.elements();
+            while (iterator.hasNext()) {
+                JsonNode jsonNode = iterator.next();
+                Object[] rowData = {
+                    jsonNode.get("ID").asText(),
+                    jsonNode.get("Name").asText(),
+                    jsonNode.get("Boat Class").asText(),
+                    jsonNode.get("Material").asText(),
+                    jsonNode.get("Status").asDouble(),
+                    jsonNode.get("Date").asText(),
+                    jsonNode.get("Size").asDouble(),
+                    jsonNode.get("Member").asText(),
+                    jsonNode.get("Comments").asText()
+                };
+                tableModel.addRow(rowData);
+            }
+
+            // Create table with model
+            table = new JTable(tableModel);
+            JScrollPane scrollPane = new JScrollPane(table);
+            tableFrame.add(scrollPane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+//--------CREATION METHODS--------
 
     public JFrame createErrorMess(String name, String errorMessage, int width, int messWidth){
         JFrame error = createFrame(name, width, 90, false);
