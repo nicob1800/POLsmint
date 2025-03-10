@@ -38,4 +38,24 @@
   "Size" : 15.0,
   "Member" : "S3",
   "Comments" : "Commnet"
+}, {
+  "ID" : 1004,
+  "Name" : "Testing boat",
+  "Boat Class" : "HURRICANE",
+  "Material" : "PETROLEUM",
+  "Status" : 75.0,
+  "Date" : "sfg",
+  "Size" : 12.0,
+  "Member" : "S3 Benavides",
+  "Comments" : "comment comment comment"
+}, {
+  "ID" : 1005,
+  "Name" : "Testing boat",
+  "Boat Class" : "HURRICANE",
+  "Material" : "PETROLEUM",
+  "Status" : 75.0,
+  "Date" : "sfg",
+  "Size" : 12.0,
+  "Member" : "S3 Benavides",
+  "Comments" : "comment comment comment"
 } ]
