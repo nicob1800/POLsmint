@@ -49,7 +49,7 @@ public class Gui{
 
     public Gui(){
         initializeMain();
-        //initializeNew();
+        
         addAll();
         
     }

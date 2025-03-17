@@ -104,11 +104,9 @@ public class Listener implements ActionListener{
         for (int i = 0; i < arrayNode.size(); i++){
             JsonNode item = arrayNode.get(i);
             ids[i] = item.get("ID").asInt();
-            //System.out.println("THIS IS THE ARRAY: " + ids[i]); // DEBUG LINE, COMMENT OUT
         }
 
         for (int j = 0; j < arrayNode.size(); j++){
-            //System.out.println("THIS IS THE ID: " + id); // DEBUG LINE, COMMENT OUT
             if (id == ids[j]){
                 status = true;
             }

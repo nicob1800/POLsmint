@@ -7,6 +7,3 @@ public class Launcher{
         gui.show();
     }
 }
-/*NEXT STEP:
-make it runnable
- */
